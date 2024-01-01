@@ -105,12 +105,12 @@ root.configure(bg="#091821")
 root.resizable(False, False)
 
 # Charger l'image que vous souhaitez utiliser pour l'icône
-icon = tkinter.PhotoImage(file="C:\\Users\\viet\\PycharmProjects\\mongodb\\images\\back.png")
+icon = tkinter.PhotoImage(file="images\\back.png")
 
 # Définir l'icône de la fenêtre principale
 root.iconphoto(True, icon)
 
-img=Image.open("C:\\Users\\viet\\PycharmProjects\\mongodb\\images\\po\\yara.png")
+img=Image.open("images\\po\\back-presence.png")
 img = img.resize((1530,790), resample=Image.LANCZOS)
 
 root.photoimg=ImageTk.PhotoImage(img)
@@ -134,7 +134,7 @@ title_lbl.place(x=0, y=50, width=1530, height=50)
 '''now = datetime.now()
 #presence_file = 'presence_{}.csv'.format(now.strftime('%Y-%m-%d'))
 
-directory = 'C:\\Users\\viet\\PycharmProjects\\mongodb\\images\\presence'
+directory = 'images\\presence'
 
 for filename in os.listdir(directory):
     if now.strftime('%Y-%m-%d') in filename:
@@ -151,14 +151,14 @@ else:
 #messagebox.showinfo("Présence enregistrée", "La présence a été bien marquée. Consulter votre rapport ici.")'''
 
 
-img1 = Image.open("C:\\Users\\viet\\PycharmProjects\\mongodb\\images\\q.jpg")
+img1 = Image.open("images\\q.jpg")
 img1 = img1.resize((220, 200), resample=Image.LANCZOS)
 photoimg1 = ImageTk.PhotoImage(img1)
 
 b1 = Button(root,border=0, image=photoimg1)
 b1.place(x=30, y=150, width=220, height=200)
 
-img2 = Image.open("C:\\Users\\viet\\PycharmProjects\\mongodb\\images\\po\\top.jpg")
+img2 = Image.open("images\\po\\top.jpg")
 img2 = img2.resize((220, 200),  resample=Image.LANCZOS)
 photoimg2 = ImageTk.PhotoImage(img2)
 
@@ -176,7 +176,7 @@ btnlisteperson.place(x=30, y=360, width=220, height=50)
 btnrapport = Button(root, text="Rapport d'Aujourd'hui",  font=(0, 10, "bold"),  bg='#57a1f8', fg='white',cursor="hand2",command=rapport)
 btnrapport.place(x=30, y=660, width=220, height=50)
 
-img5 = Image.open("C:\\Users\\viet\\PycharmProjects\\mongodb\\images\\po\\bro.jpg")
+img5 = Image.open("images\\po\\bro.jpg")
 img5 = img5.resize((220, 200), resample=Image.LANCZOS)
 root.photoimg5 = ImageTk.PhotoImage(img5)
 

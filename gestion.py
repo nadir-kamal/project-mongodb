@@ -68,13 +68,6 @@ data_list = [
     )
 ]
 
-# Exemple d'impression des données
-#for data in data_list:
-    #print(data)
-
-
-
-
 #actualiser
 def actualiser():
     root.destroy()
@@ -95,36 +88,33 @@ def Supprimer():
     pass
 
 
-
-
-
 #Ma fenetre
 root = Tk()
 
 root.title('Fenetre de connexion')
-root.geometry('1530x790+0+0')
+root.geometry('1400x930+100+50')
 root.configure(bg="#091821")
-root.resizable(False, False)
+root.resizable(True, True)
 
 # Charger l'image que vous souhaitez utiliser pour l'icône
-icon = tkinter.PhotoImage(file="C:\\Users\\viet\\PycharmProjects\\mongodb\\images\\back.png")
+icon = tkinter.PhotoImage(file="images\\back.png")
 
 # Définir l'icône de la fenêtre principale
 root.iconphoto(True, icon)
 
-img=Image.open("C:\\Users\\viet\\PycharmProjects\\mongodb\\images\\emp.jpg")
-img = img.resize((1530,790), resample=Image.LANCZOS)
+img=Image.open("images\\emp.jpg")
+img = img.resize((1400,930), resample=Image.LANCZOS)
 
 root.photoimg=ImageTk.PhotoImage(img)
 
 f_lbl=Label(root,image=root.photoimg)
-f_lbl.place(x=0,y=0,width=1530,height=790)
+f_lbl.place(x=0,y=0,width=1400,height=930)
 
 #Ajouter le titre
 
 title_lbl = Label(root, text="Gestion Des Etudiants ", font=("Microsoft Himalaya", 40, "bold"),
                           bg="#091821", fg="#57a1f8")
-title_lbl.place(x=0, y=50, width=1530, height=50)
+title_lbl.place(x=0, y=50, width=1400, height=50)
 
 
 #details des personnes
@@ -170,33 +160,24 @@ lblmatiere.place (x=20, y=400, width=180, )
 txtmatiere =Entry(root,bd=4, font=("Arial", 14))
 txtmatiere.place(x=220, y=400, width=300)
 
-#salaire
-#lblsalaire = Label(root, text="SALAIRE", font=("Arial", 18), bg="#091821", fg="white")
-#lblsalaire.place(x=20, y=450, width=180, )
-#txtsalaire =Entry(root,bd=4, font=("Arial", 14))
-#txtsalaire.place(x=220, y=450, width=300)
-
-
-
-
 btnenregistrer = Button(root, text="AJOUTER PERSONNE", font=("Microsoft Himalaya", 20, "bold"), cursor="hand2",bg='#57a1f8', fg='white',command=Ajouter)
-btnenregistrer.place(x=220, y=550, width=300, height=30)
+btnenregistrer.place(x=220, y=500, width=300, height=30)
 
 btnmodifier = Button(root, text="MODIFIER PERSONNE", font=("Microsoft Himalaya", 20, "bold"), cursor="hand2", bg='#57a1f8', fg='white',command=Modifer)
-btnmodifier.place(x=220, y=600, width=300, height=30)
+btnmodifier.place(x=220, y=550, width=300, height=30)
 
 btnsupprimmer = Button(root, text="SUPPRIMER PERSONNE", font=("Microsoft Himalaya", 20, "bold"), cursor="hand2", bg='#57a1f8', fg='white',command=Supprimer)
-btnsupprimmer.place(x=220, y=650, width=300, height=30)
+btnsupprimmer.place(x=220, y=600, width=300, height=30)
 
 
 
 title_table = Label(root, text="Liste Des Etudiants ",font=("Microsoft Himalaya", 20, "bold"),bg='#57a1f8', fg='white',)
-title_table.place(x=660, y=150, width=800, height=35)
+title_table.place(x=620, y=150, width=720, height=35)
 
 
 #Table
 table=ttk. Treeview (root, columns = (1, 2, 3, 4, 5, 6,7), height=5,show="headings")
-table.place(x =660, y=  190, width = 800, height = 450)
+table.place(x=620, y = 190, width = 720, height = 450)
 
 
 #Entete
@@ -210,31 +191,21 @@ table.heading(6 , text = "email")
 table.heading(7 , text = "attendance_time")
 
 #definir les dimentions des colonnes
-table.column(1, width = 100)
-table.column(2, width = 120)
-table.column(3, width = 120)
-table.column(4, width = 70)
-table.column(5, width = 120)
-table.column(6, width = 120)
+table.column(1, width = 80)
+table.column(2, width = 100)
+table.column(3, width = 100)
+table.column(4, width = 50)
+table.column(5, width = 100)
+table.column(6, width = 100)
 #table.column(7, width = 50)
-table.column(7, width = 100)
+table.column(7, width = 80)
 
 
 # afficher les informations de la table
 
-
-
-
 # Boucle pour ajouter chaque ligne de données au tableau
 for data in data_list:
     table.insert("", "end", values=data)
-
-'''maBase= mysql.connector.connect(host="localhost", user="root", password="souadouth2002", database="personnes")
-meConnect = maBase.cursor()
-meConnect.execute("select * from gestperson")
-for row in meConnect:
-    table.insert('', END, value=row)
-maBase.close()'''
 
 
 #Execution
